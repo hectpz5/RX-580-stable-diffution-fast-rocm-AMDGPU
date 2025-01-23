@@ -2,7 +2,7 @@
 Run amd polaris compatibility with stable deffution
 
 
-REQUIREMENTS PC
+# REQUIREMENTS PC
 build pytorch 2.1.2 with ROCm support more stability stable-diffusion-webui-forge
 
 
@@ -35,8 +35,12 @@ sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenbla
 
 
 -----------------------------------------------------------------------------------------------------------------------
+
 ## Install ROCm
- install key
+
+
+
+install key
 
 sudo mkdir --parents --mode=0755 /etc/apt/keyrings
 
@@ -65,6 +69,8 @@ rocminfo
 rocm-smi
 clinfo
 -------------------------------------------------------------------------------------------------------------------------
+
+
 ## Upgrade AMDGPU driver more stability
 
 sudo rm /etc/apt/sources.list.d/amdgpu*
