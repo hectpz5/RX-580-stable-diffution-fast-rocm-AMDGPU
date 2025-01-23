@@ -25,8 +25,9 @@ sudo apt install "linux-image-$KERN" "linux-headers-$KERN" "linux-modules-$KERN"
 If you are running v5.19 already but you have freshier kernels installed then DKMS *might* quietly fail to build, breaking `dpkg` installation routines.
 
 ------------------------------------------------------------------------------------------------------------------------
-
-## Optionals Install dependencies
+## PROCESS
+ 
+ Optionals Install dependencies
 
 ```In terminal
 sudo apt autoremove rocm-core amdgpu-dkms
