@@ -70,13 +70,77 @@ sudo rm -rf /var/cache/apt/*
 sudo apt clean all
 sudo apt update
 sudo reboot
- install key
 
-sudo mkdir --parents --mode=0755 /etc/apt/keyrings
+Install New script AMDGPU-INSTALL
 
-  Download the key
+https://repo.radeon.com/amdgpu-install/6.2/ubuntu/jammy/amdgpu-install_6.2.60203-1_all.deb
+
+Only terminal and say chANnge repo ROCM new version  white N no change
+
+Reinstall Key
 
 wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | \
     gpg --dearmor | sudo tee /etc/apt/keyrings/rocm.gpg > /dev/null
  Change repo AMDGPU
+
+sudo apt-get update && sudo apt-get full-upgrade
+
+OR....
+
+ Change repo AMDGPU manual
+
+sudo nano /etc/apt/sources.list.d/amdgpu.list
+
+Only line  5.5 to 6.2.3
+
+sudo apt-get update && sudo apt-get full-upgrade
+
+-----------------------------------------------------------------------------------------------------------------------------
+### install in Automatic SD WebUI
+
+``` AMD RX 580
+
+
+git clone https://github.com/lllyasviel/stable-diffusion-webui-forge.git
+
+or download here
+
+cd stable-diffusion-webui-forge
+python3 -m venv venv
+source venv/bin/activate
+
+Here use app inside folder recet create " /venv/bin" of stable-diffusion-webui-forge by enviroment virtual of python
+
+python -m pip install --upgrade pip wheel
+/home/*you_folder*/Dowload/stable-diffusion-webui-forge/venv/bin/pip uninstall torch torchvision
+/home/*you_folder*/Download/stable-diffusion-webui-forge/venv/bin/pip3 install /home/*******Download/torchvision-0.16.2-cp310-cp310-linux_x86_64.whl
+/home/*you_folder*/Download/stable-diffusion-webui-forge/venv/bin/pip3 install /home/*******Download/torch-2.1.2-cp310-cp310-linux_x86_64.whl
+/home/*you_folder*/Download/stable-diffusion-webui-forge/venv/bin/pip3 install  -r requirements_versions.txt
+pip list | grep 'torch'
+Run
+/home/*you_folder*/Download/stable-diffusion-webui-forge/venv/bin/python3 launch.py  --precision full --no-half  --opt-split-attention-v1 --upcast-sampling
+
+  ## extra info
+
+GPUs rx 400 rx 500 series
+More 8gb de vram
+**** --precision full --no-half --opt-split-attention-v1 --upcast-sampling "
+ 
+Medium 4gb to 6gb de vram 
+*** --precision full --no-half --medvram"
+
+Or 4gb o low 
+*** --precision full --no-half --lowvram"
+## Reference and special thanks
+- https://github.com/lllyasviel/stable-diffusion-webui-forge
+- https://rocm.docs.amd.com/projects/install-on-linux/en/latest/install/native-install/ubuntu.html
+- https://github.com/LinuxMadeEZ/PyTorch-Ubuntu-GFX803
+- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1892611849%E7%9A%84%E5%BB%BA%E8%AD%B0%E5%98%97%E8%A9%A6%E8%87%AA%E7%B7%A8torch%E5%92%8Ctorch%20vision%E8%A9%A6%E8%A9%A6%E7%9C%8B%E6%9C%83%E4%B8%8D%E6%9C%83%E6%88%90%E5%8A%9F
+- https://github.com/viebrix/pytorch-gfx803/tree/main
+- https://github.com/RadeonOpenCompute/ROCm/issues/1659
+- https://github.com/xuhuisheng/rocm-gfx803
+- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1534048619
+- https://github.com/Tokoshie/pytorch-gfx803/releases/tag/v2.1.0a0
+- https://github.com/xuhuisheng/rocm-gfx803/issues/27#issuecomment-1892611849
+- https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki
 
