@@ -14,7 +14,7 @@ Python 3.10.12
 - torchvision 0.16.2
 -----------------------------------------------------------------------------------------------------------------------
 Special thanks to viebrix repo pytorch-gfx803
-## Kernel version requirement
+# Kernel version requirement
 The installation procedure involves building the kernel modules from the `amdgpu-dkms` package. DKMS from ROCm 5.5 will **not** build on kernels above 5.19 such as 6.2.x and 6.5.x that are already available in Linux Mint repos. At the time of writing the latest kernel version where `amdgpu-dkms` only works is **5.19.0-50**. Make sure to downgrade in advance if you run a freshier kernel.
 ```bash
 KERN="5.19.0-50-generic"
@@ -33,6 +33,23 @@ sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenbla
 
 -----------------------------------------------------------------------------------------------------------------------
 ## Install ROCm
+ install key
+
+sudo mkdir --parents --mode=0755 /etc/apt/keyrings
+
+  Download the key
+
+wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | \
+    gpg --dearmor | sudo tee /etc/apt/keyrings/rocm.gpg > /dev/null
+
+install olds repo amd and rocm
+
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/amdgpu/5.5/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/amdgpu.list
+
+echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/rocm.gpg] https://repo.radeon.com/rocm/apt/5.5 jammy main" | sudo tee --append /etc/apt/sources.list.d/rocm.list
+
+Install script AMDGPU-INSTALL
+
 wget https://repo.radeon.com/amdgpu-install/5.5/ubuntu/jammy/amdgpu-install_5.5.50500-1_all.deb
 sudo apt install ./amdgpu-install_5.5.50500-1_all.deb
 sudo amdgpu-install -y --usecase=rocm,hiplibsdk,mlsdk
@@ -46,17 +63,20 @@ rocm-smi
 clinfo
 -------------------------------------------------------------------------------------------------------------------------
 ## Upgrade AMDGPU driver more stability
-#install key
-sudo mkdir --parents --mode=0755 /etc/apt/keyrings
 
-# Download the key
-wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | \
-    gpg --dearmor | sudo tee /etc/apt/keyrings/rocm.gpg > /dev/null
-## Change repo AMDGPU
-sudo rm /etc/apt/sources.list.d/amdgpu.list
+sudo rm /etc/apt/sources.list.d/amdgpu*
 
 sudo rm -rf /var/cache/apt/*
 sudo apt clean all
 sudo apt update
 sudo reboot
+ install key
+
+sudo mkdir --parents --mode=0755 /etc/apt/keyrings
+
+  Download the key
+
+wget https://repo.radeon.com/rocm/rocm.gpg.key -O - | \
+    gpg --dearmor | sudo tee /etc/apt/keyrings/rocm.gpg > /dev/null
+ Change repo AMDGPU
 
