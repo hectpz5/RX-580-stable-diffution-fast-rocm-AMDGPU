@@ -1,13 +1,16 @@
 # RX-580-stable-diffution-fast-rocm-AMDGPU
 Run amd polaris compatibility with stable deffution
-REQUIREMENTS PC
 
+
+REQUIREMENTS PC
 build pytorch 2.1.2 with ROCm support more stability stable-diffusion-webui-forge
+
 
 Linux Mint 21.2 mate low use RAM
 Kernel 5.19.0-50-generic > block version with synaptic
 Radeon RX 480/580 8GB > driver AMDGPU upgrade 6.8.5 more stability
 RoCm 5.5 >  necesary and not upgrade
+
 
 Python 3.10.12
 - pytorch 2.1.2
