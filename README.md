@@ -1,4 +1,4 @@
-# RX-580-stable-diffution-fast-rocm-AMDGPU
+# RX-580-Polarias model-stable-diffution-fast-rocm-AMDGPU
 Run amd polaris compatibility with stable deffution
 
 
