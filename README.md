@@ -35,11 +35,14 @@ sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenbla
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## Install ROCm
+
+## INSTALL ROCM
 
 
 
 install key
+
+```In terminal  
 
 sudo mkdir --parents --mode=0755 /etc/apt/keyrings
 
