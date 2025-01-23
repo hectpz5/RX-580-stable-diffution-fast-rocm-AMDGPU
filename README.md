@@ -5,14 +5,13 @@ Run amd polaris compatibility with stable deffution
 # REQUIREMENTS PC
 build pytorch 2.1.2 with ROCm support more stability stable-diffusion-webui-forge
 
+- Linux Mint 21.2 mate low use RAM
+- Kernel 5.19.0-50-generic > block version with synaptic
+- Radeon RX 480/580 8GB > driver AMDGPU upgrade 6.8.5 more stability
+- RoCm 5.5 >  necesary and not upgrade
 
-Linux Mint 21.2 mate low use RAM
-Kernel 5.19.0-50-generic > block version with synaptic
-Radeon RX 480/580 8GB > driver AMDGPU upgrade 6.8.5 more stability
-RoCm 5.5 >  necesary and not upgrade
 
-
-Python 3.10.12
+- Python 3.10.12
 - pytorch 2.1.2
 - torchvision 0.16.2
 -----------------------------------------------------------------------------------------------------------------------
@@ -33,8 +32,7 @@ If you are running v5.19 already but you have freshier kernels installed then DK
 sudo apt autoremove rocm-core amdgpu-dkms
 sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenblas-dev libpng-dev libjpeg-dev
 
-
------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------
 
 ## Install ROCm
 
