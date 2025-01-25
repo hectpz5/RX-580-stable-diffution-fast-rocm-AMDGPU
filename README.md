@@ -31,7 +31,8 @@ If you are running v5.19 already but you have freshier kernels installed then DK
 
 ```In terminal
 sudo apt autoremove rocm-core amdgpu-dkms
-sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenblas-dev libpng-dev libjpeg-dev pip python3.10-venv
+sudo apt install libopenmpi3 libstdc++-12-dev libdnnl-dev ninja-build libopenblas-dev libpng-dev libjpeg-dev git python3-pip python3-venv python3-dev
+
 
 ###########################################################################################################################################################
 
